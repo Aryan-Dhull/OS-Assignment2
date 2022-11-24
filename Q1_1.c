@@ -48,8 +48,8 @@ static void* Ccount(){
 
 int main(int argc, char argv[]){
 	int p=1;
+	FILE *fptr;
 	for(int i=0;i<10;i++){
-		FILE *fptr;
 		fptr = fopen ("histogram.data","a");
 		printf("Priority :%d\n",p);
 		pthread_t threadA, threadB, threadC;
@@ -88,6 +88,6 @@ int main(int argc, char argv[]){
 		fprintf(fptr,"%d %lf %lf %lf",p,t1,t2,t3);
 		p++;
 	}
-	fptr.close();
+	fclose(fptr);
 	return 0;
 }
