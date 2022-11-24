@@ -50,7 +50,7 @@ int main(int argc, char argv[]){
 	int p=1;
 	for(int i=0;i<10;i++){
 		FILE *fptr;
-		fptr = open ("histogram.data","a");
+		fptr = fopen ("histogram.data","a");
 		printf("Priority :%d\n",p);
 		pthread_t threadA, threadB, threadC;
 		pthread_attr_t attr1,attr2,attr3;
