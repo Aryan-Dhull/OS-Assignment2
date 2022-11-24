@@ -49,7 +49,7 @@ static void* Ccount(){
 int main(int argc, char argv[]){
 	int p=1;
 	FILE *fptr;
-	for(int i=0;i<2;i++){
+	for(int i=0;i<10;i++){
 		fptr = fopen ("histogram.data","a");
 		printf("Priority :%d\n",p);
 		pthread_t threadA, threadB, threadC;
