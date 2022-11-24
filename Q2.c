@@ -12,6 +12,16 @@ int main(int argc, char **argv)
 	int c=2;
 	float mat1[2][2]={{1.2,2.3},{3.4,4.5}};
 	float mat2[2][2]={{0,0},{0,0}};
+	
+	printf("This is the matrix to be copied:\n");
+
+	for(int i=0;i<r;i++){
+		for(int j=0;j<r;j++){
+			printf("%lf ",mat1[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\n");
 
 	printf("This is the initial matrix:\n");
 
@@ -31,7 +41,17 @@ int main(int argc, char **argv)
 	}
 	else if(res == 0) printf("syscall successfull\n");
 	
-	printf("Printing after copying:\n");
+	printf("This is the given matrix after copying:\n");
+
+	for(int i=0;i<r;i++){
+		for(int j=0;j<r;j++){
+			printf("%lf ",mati[i][j]);
+		}
+		printf("\n");
+	}
+	printf("\n");
+	
+	printf("This is the matrix copied\n");
 
 	for(int i=0;i<r;i++){
 		for(int j=0;j<c;j++){
