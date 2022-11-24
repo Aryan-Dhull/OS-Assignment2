@@ -1,0 +1,18 @@
+2713,2725d2712
+< SYSCALL_DEFINE2(kernel_2d_memcpy, float *, mat1, float *, mat2)
+< {
+< 	float newMatrix[2][2];
+< 	if (copy_from_user(&newMatrix, mat1, sizeof(newMatrix)) !=0)
+< 	{
+< 		return -EFAULT;
+< 	}
+< 	if (copy_to_user(mat2, &newMatrix, sizeof(newMatrix)) !=0)
+< 	{
+< 		return -EFAULT;
+< 	}
+< 	return 0;
+< }
+2727d2713
+< 	
+375d374
+< 451	common	kernel_2d_memcpy	sys_kernel_2d_memcpy
