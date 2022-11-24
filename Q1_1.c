@@ -49,7 +49,7 @@ static void* Ccount(){
 int main(int argc, char argv[]){
 	int p=1;
 	FILE *fptr;
-	for(int i=0;i<10;i++){
+	for(int i=0;i<2;i++){
 		fptr = fopen ("histogram.data","a");
 		printf("Priority :%d\n",p);
 		pthread_t threadA, threadB, threadC;
@@ -62,7 +62,7 @@ int main(int argc, char argv[]){
 		S = pthread_attr_setschedpolicy(&attr1,SCHED_FIFO);
 		S = pthread_attr_setinheritsched(&attr1,PTHREAD_EXPLICIT_SCHED);
 		struct sched_param schedParamFIFO;
-		schedParamFIFO.sched_priority = 1;
+		schedParamFIFO.sched_priority = p;
 		S = pthread_attr_setschedparam(&attr1, &schedParamFIFO);
 		S = pthread_create(&threadA, &attr1, &Acount, NULL);
 
@@ -70,7 +70,7 @@ int main(int argc, char argv[]){
 		S = pthread_attr_setschedpolicy(&attr2,SCHED_RR);
 		S = pthread_attr_setinheritsched(&attr2,PTHREAD_EXPLICIT_SCHED);
 		struct sched_param schedParamRR;
-		schedParamRR.sched_priority = 1;
+		schedParamRR.sched_priority = p;
 		S = pthread_attr_setschedparam(&attr2, &schedParamRR);
 		S = pthread_create(&threadB, &attr2, &Bcount, NULL);
 
@@ -86,7 +86,7 @@ int main(int argc, char argv[]){
 		pthread_join(threadB, NULL);
 		pthread_join(threadC, NULL);
 		fprintf(fptr,"%d %lf %lf %lf",p,t1,t2,t3);
-		p++;
+		p+=5;
 	}
 	fclose(fptr);
 	return 0;
